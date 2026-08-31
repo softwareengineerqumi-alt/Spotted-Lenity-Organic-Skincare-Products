@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | SKINSHO Skincare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <nav class="nav-left">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="shop.html" class="nav-link">PERSONAL USE</a>
+                <a href="shop.html#resellers" class="nav-link">RESELLERS</a>
+                <a href="reviews.html" class="nav-link">REVIEWS</a>
+            </nav>
+
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-mark">SKINSHO</span>
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <a href="index.html#about" class="nav-link">ABOUT</a>
+                <a href="index.html#contact" class="nav-link">CONTACT</a>
+                <a href="checkout.html" class="cart-icon-link" aria-label="Shopping Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="products-section">
+        <div class="products-container" style="max-width: 600px; text-align: center; margin: 40px auto;">
+            <div style="background-color: var(--color-white); padding: 40px; border: 1px solid var(--color-border);">
+                <h1 class="section-title" style="margin-bottom: 15px;">Thank You for Your Order</h1>
+                <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 25px;">
+                    Your payment was successful and your order has been received.
+                </p>
+
+                <div style="background-color: var(--color-card-bg); padding: 20px; text-align: left; margin-bottom: 25px;">
+                    <p style="font-size: 13px; font-weight: 600; margin-bottom: 8px;">Order Details</p>
+                    <p style="font-size: 13px; color: var(--color-text-muted);" id="order-reference">Order Ref: Processing...</p>
+                </div>
+
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="index.html" class="add-to-cart-btn" style="display: inline-block; background-color: var(--color-dusty-rose); color: var(--color-white); width: auto; padding: 12px 25px;">RETURN HOME</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; SKINSHO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
