@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <header class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -26,7 +25,6 @@
         </div>
     </header>
 
-    <!-- Floating Cart Bubble -->
     <a href="checkout.html" class="floating-cart-bubble" title="View Cart">
         <i class="fas fa-shopping-bag" style="font-size: 20px;"></i>
         <span style="font-size: 10px; margin-top: 2px;">Cart</span>
@@ -35,10 +33,10 @@
 
     <section style="text-align: center; padding: 50px 20px 10px;">
         <h1 class="script-font" style="font-size: 52px; margin-bottom: 10px;">Customer Reviews</h1>
-        <p style="font-size: 16px; opacity: 0.9;">Read real feedback or leave your own review below.</p>
+        <p style="font-size: 16px; opacity: 0.9;">Real feedback from verified Spotted Lenity clients.</p>
     </section>
 
-    <!-- Submit Review Form Card -->
+    <!-- Submission Form for Real Customers -->
     <section style="max-width: 600px; margin: 20px auto 40px; padding: 0 20px;">
         <div class="liquid-product-card" style="text-align: left; padding: 25px;">
             <h3 class="script-font" style="font-size: 28px; margin-bottom: 15px;">Leave a Review</h3>
@@ -59,19 +57,17 @@
                 </div>
                 <div>
                     <label style="font-size: 12px; text-transform: uppercase;">Your Review</label>
-                    <textarea id="reviewer-text" rows="3" required placeholder="Share your experience with our products..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: #fff;"></textarea>
+                    <textarea id="reviewer-text" rows="3" required placeholder="Share your experience..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: #fff;"></textarea>
                 </div>
-                <button type="submit" class="btn-glass" style="width: 100%; margin-top: 10px;">Post Review</button>
+                <button type="submit" class="btn-glass" style="width: 100%; margin-top: 10px;">Submit Review</button>
             </form>
         </div>
     </section>
 
-    <!-- Reviews Display Grid -->
+    <!-- Dynamic Review Feed -->
     <main id="reviews-list" style="max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-        <!-- Reviews submitted by real users will dynamically display here -->
     </main>
 
-    <!-- Footer -->
     <footer class="footer-container">
         <h3 class="script-font" style="font-size: 36px;">Contact Us On</h3>
         <div class="social-icons-group">
@@ -85,7 +81,6 @@
     <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Live Customer Review Handler
         document.addEventListener('DOMContentLoaded', loadReviews);
 
         const form = document.getElementById('review-form');
@@ -110,7 +105,7 @@
             let reviews = JSON.parse(localStorage.getItem('sl_user_reviews')) || [];
 
             if (reviews.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.8;">No reviews posted yet. Be the first to leave a review!</p>';
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.8;">No client reviews posted yet. Be the first to submit one!</p>';
                 return;
             }
 
