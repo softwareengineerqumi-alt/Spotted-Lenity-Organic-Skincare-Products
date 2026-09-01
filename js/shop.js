@@ -1,3 +1,5 @@
+// Shop Script: Connects "Add to Cart" buttons to the cart system
+
 document.addEventListener('DOMContentLoaded', () => {
     setupAddToCartButtons();
 });
