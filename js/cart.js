@@ -1,4 +1,5 @@
-// Cart State Management
+// Cart Script: Manages cart storage and updating items
+
 let cart = JSON.parse(localStorage.getItem('spotted_lenity_cart')) || [];
 
 function updateCartCount() {
