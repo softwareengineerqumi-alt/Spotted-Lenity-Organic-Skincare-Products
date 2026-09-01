@@ -3,187 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | SKINSHO Skincare</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Individual Menu | Spotted Lenity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header class="site-header">
-        <div class="header-container">
-            <nav class="nav-left">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="shop.html" class="nav-link active">PERSONAL USE</a>
-                <a href="#resellers" class="nav-link">RESELLERS</a>
-                <a href="reviews.html" class="nav-link">REVIEWS</a>
-            </nav>
-
-            <div class="logo-container">
-                <a href="index.html" class="logo">
-                    <span class="logo-mark">SKINSHO</span>
-                </a>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Spotted Lenity</a>
             </div>
-
-            <div class="nav-right">
-                <a href="index.html#about" class="nav-link">ABOUT</a>
-                <a href="index.html#contact" class="nav-link">CONTACT</a>
-                <a href="checkout.html" class="cart-icon-link" aria-label="Shopping Cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span class="cart-badge" id="cart-count">0</span>
-                </a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="resellers.html">RESELLER MENU</a></li>
+                <li><a href="shop.html" class="active">INDIVIDUAL MENU</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="reviews.html">REVIEWS</a></li>
+            </ul>
         </div>
     </header>
 
+    <!-- Floating Liquid Glass Cart Bubble -->
+    <a href="checkout.html" class="floating-cart-bubble" title="View Cart">
+        <i class="fas fa-shopping-bag" style="font-size: 20px;"></i>
+        <span style="font-size: 10px; margin-top: 2px;">Cart</span>
+        <span class="cart-count-badge" id="cart-count">0</span>
+    </a>
+
     <!-- Main Content -->
-    <main>
-        <!-- Personal Use Section -->
-        <section class="products-section">
-            <div class="products-container">
-                <div class="section-header">
-                    <h1 class="section-title">Personal Use Products</h1>
-                </div>
+    <section style="text-align: center; padding: 60px 20px 20px;">
+        <h1 class="script-font" style="font-size: 52px; margin-bottom: 10px;">Individual Menu</h1>
+        <p style="font-size: 16px; opacity: 0.9;">Curated organic skincare essentials for your daily routine.</p>
+    </section>
 
-                <div class="product-grid">
+    <!-- Product Grid -->
+    <main class="product-menu-grid">
+        <div class="liquid-product-card">
+            <h3>Face Cream</h3>
+            <p class="price">R110</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/7626814b-d374-4ab1-ac76-86a02e5ef17c.jpeg" alt="Face cream" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Face cream</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R110</div>
-                            <button class="add-to-cart-btn" data-id="1" data-name="Face cream" data-price="110">ADD TO CART</button>
-                        </div>
-                    </div>
+        <div class="liquid-product-card">
+            <h3>Coffee & Charcoal Scrub</h3>
+            <p class="price">R100</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/b4cc8769-e02b-450d-a8d8-74f02548a994.jpeg" alt="Coffee & Charcoal scrub" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Coffee & Charcoal scrub</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R100</div>
-                            <button class="add-to-cart-btn" data-id="2" data-name="Coffee & Charcoal scrub" data-price="100">ADD TO CART</button>
-                        </div>
-                    </div>
+        <div class="liquid-product-card">
+            <h3>Glow Serum</h3>
+            <p class="price">R130</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/e82e843c-d796-4394-825a-c8c7b308d511.jpeg" alt="Glow serum" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Glow serum</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R130</div>
-                            <button class="add-to-cart-btn" data-id="3" data-name="Glow serum" data-price="130">ADD TO CART</button>
-                        </div>
-                    </div>
+        <div class="liquid-product-card">
+            <h3>Ultimate Glow Combo</h3>
+            <p class="price">R480</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 4 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/940789d3-2d2a-40eb-8922-06c920e74cd6.jpeg" alt="Ultimate glow combo" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Ultimate glow combo</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R480</div>
-                            <button class="add-to-cart-btn" data-id="4" data-name="Ultimate glow combo" data-price="480">ADD TO CART</button>
-                        </div>
-                    </div>
+        <div class="liquid-product-card">
+            <h3>Black Soap Paste & Glow Serum</h3>
+            <p class="price">R280</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 5 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/e4b5c84c-291d-433a-8e6e-31e130aed28e.jpeg" alt="Black soap paste and glow serum" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Black soap paste and glow serum</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R280</div>
-                            <button class="add-to-cart-btn" data-id="5" data-name="Black soap paste and glow serum" data-price="280">ADD TO CART</button>
-                        </div>
-                    </div>
+        <div class="liquid-product-card">
+            <h3>Belly Buster Tea</h3>
+            <p class="price">R150</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
 
-                    <!-- Product 6 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/154bb0b1-b34d-4669-b9cb-f48426043f5c.jpeg" alt="Belly buster tea" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Belly buster tea</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R150</div>
-                            <button class="add-to-cart-btn" data-id="6" data-name="Belly buster tea" data-price="150">ADD TO CART</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 7 -->
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="images/PHOTO-2026-08-31-19-34-14.jpeg" alt="Black soap paste" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Black soap paste</h3>
-                            <div class="product-rating">
-                                <span class="star-rating">★★★★★</span>
-                            </div>
-                            <div class="product-price">R150</div>
-                            <button class="add-to-cart-btn" data-id="7" data-name="Black soap paste" data-price="150">ADD TO CART</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Reseller Section Header -->
-        <section id="resellers" class="products-section" style="border-top: 1px solid var(--color-border);">
-            <div class="products-container">
-                <div class="section-header">
-                    <h2 class="section-title">Reseller Bulk Orders</h2>
-                </div>
-                <p style="color: var(--color-text-muted); font-size: 14px;">
-                    Bulk ordering details and reseller packages will be updated here once final business rules are confirmed.
-                </p>
-            </div>
-        </section>
+        <div class="liquid-product-card">
+            <h3>Black Soap Paste</h3>
+            <p class="price">R150</p>
+            <button class="btn-glass">Add to Cart</button>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p>&copy; SKINSHO. All rights reserved.</p>
+    <footer class="footer-container">
+        <h3 class="script-font" style="font-size: 36px;">Contact Us On</h3>
+        <div class="social-icons-group">
+            <a href="tel:+27000000000" class="social-glass-btn" title="Call Us"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/27000000000" class="social-glass-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com" class="social-glass-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
+        <p style="margin-top: 25px; font-size: 12px; opacity: 0.7;">&copy; 2026 Spotted Lenity Organic Skincare Products. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/shop.js"></script>
-    <script src="js/cart.js"></script>
 </body>
 </html>
