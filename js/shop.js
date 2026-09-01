@@ -1,44 +1,27 @@
-// Shop Page Script for SKINSHO
-
 document.addEventListener('DOMContentLoaded', () => {
-    initializeSearch();
+    setupAddToCartButtons();
 });
 
-// Setup hero search input listener
-function initializeSearch() {
-    const searchInput = document.querySelector('.search-box input');
-    const searchBtn = document.querySelector('.search-btn');
+function setupAddToCartButtons() {
+    const addButtons = document.querySelectorAll('.liquid-product-card button');
+    
+    addButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = e.target.closest('.liquid-product-card');
+            const name = card.querySelector('h3').textContent.trim();
+            const priceText = card.querySelector('.price').textContent.trim();
+            const price = parseFloat(priceText.replace('R', ''));
 
-    if (searchInput && searchBtn) {
-        const executeSearch = () => {
-            const query = searchInput.value.trim().toLowerCase();
-            if (query !== '') {
-                filterProducts(query);
-            }
-        };
+            addToCart(name, price);
 
-        searchBtn.addEventListener('click', executeSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                executeSearch();
-            }
+            // Button Feedback Animation
+            const originalText = button.textContent;
+            button.textContent = 'Added! ✓';
+            button.style.background = 'rgba(80, 97, 72, 0.9)';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 1200);
         });
-    }
-}
-
-// Simple product search filter matching text
-function filterProducts(query) {
-    const productCards = document.querySelectorAll('.product-card');
-
-    productCards.forEach(card => {
-        const titleElement = card.querySelector('.product-title');
-        if (titleElement) {
-            const title = titleElement.textContent.toLowerCase();
-            if (title.includes(query)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        }
     });
 }
