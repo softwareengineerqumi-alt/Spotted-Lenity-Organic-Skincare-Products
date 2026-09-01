@@ -3,212 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews | SKINSHO Skincare</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Reviews | Spotted Lenity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header class="site-header">
-        <div class="header-container">
-            <nav class="nav-left">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="shop.html" class="nav-link">PERSONAL USE</a>
-                <a href="shop.html#resellers" class="nav-link">RESELLERS</a>
-                <a href="reviews.html" class="nav-link active">REVIEWS</a>
-            </nav>
-
-            <div class="logo-container">
-                <a href="index.html" class="logo">
-                    <span class="logo-mark">SKINSHO</span>
-                </a>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Spotted Lenity</a>
             </div>
-
-            <div class="nav-right">
-                <a href="index.html#about" class="nav-link">ABOUT</a>
-                <a href="index.html#contact" class="nav-link">CONTACT</a>
-                <a href="checkout.html" class="cart-icon-link" aria-label="Shopping Cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span class="cart-badge" id="cart-count">0</span>
-                </a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="resellers.html">RESELLER MENU</a></li>
+                <li><a href="shop.html">INDIVIDUAL MENU</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="reviews.html" class="active">REVIEWS</a></li>
+            </ul>
         </div>
     </header>
 
+    <!-- Floating Liquid Glass Cart Bubble -->
+    <a href="checkout.html" class="floating-cart-bubble" title="View Cart">
+        <i class="fas fa-shopping-bag" style="font-size: 20px;"></i>
+        <span style="font-size: 10px; margin-top: 2px;">Cart</span>
+        <span class="cart-count-badge" id="cart-count">0</span>
+    </a>
+
     <!-- Main Content -->
-    <main class="products-section">
-        <div class="products-container">
-            <div class="section-header">
-                <h1 class="section-title">Customer Reviews</h1>
+    <section style="text-align: center; padding: 60px 20px 20px;">
+        <h1 class="script-font" style="font-size: 52px; margin-bottom: 10px;">Client Love</h1>
+        <p style="font-size: 16px; opacity: 0.9;">See what our community has to say about our organic products.</p>
+    </section>
+
+    <!-- Reviews Grid -->
+    <main style="max-width: 1000px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
+            <div style="color: #FFD700; margin-bottom: 15px;">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
+            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
+                "The Glow Serum and Face Cream combination transformed my skin texture within weeks. Absolutely in love with this brand!"
+            </p>
+            <h4 style="font-size: 16px; font-weight: 600;">— Thandi M.</h4>
+        </div>
 
-            <div class="reviews-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px;">
-                
-                <!-- Display Reviews Container -->
-                <div class="reviews-list-box">
-                    <h2 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 20px;">What Our Clients Say</h2>
-                    
-                    <div id="reviews-container" style="display: flex; flex-direction: column; gap: 20px;">
-                        <p style="color: var(--color-text-muted); font-size: 14px;">Loading reviews...</p>
-                    </div>
-                </div>
-
-                <!-- Submit Review Form -->
-                <div class="review-form-box" style="background-color: var(--color-white); padding: 30px; border: 1px solid var(--color-border);">
-                    <h2 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 20px;">Leave a Review</h2>
-                    
-                    <form id="review-form" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">YOUR NAME</label>
-                            <input type="text" id="reviewer-name" required style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px;">
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">RATING</label>
-                            <select id="reviewer-rating" style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px; background: var(--color-white);">
-                                <option value="5">★★★★★ (5/5)</option>
-                                <option value="4">★★★★☆ (4/5)</option>
-                                <option value="3">★★★☆☆ (3/5)</option>
-                                <option value="2">★★☆☆☆ (2/5)</option>
-                                <option value="1">★☆☆☆☆ (1/5)</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">YOUR REVIEW</label>
-                            <textarea id="reviewer-comment" rows="4" required style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px;"></textarea>
-                        </div>
-
-                        <button type="submit" class="add-to-cart-btn" style="background-color: var(--color-dusty-rose); color: var(--color-white); margin-top: 10px; padding: 15px;">SUBMIT REVIEW</button>
-                    </form>
-                </div>
-
+        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
+            <div style="color: #FFD700; margin-bottom: 15px;">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
+            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
+                "The Black Soap Paste is so gentle yet effective. Joining as a reseller was the best decision I made this year."
+            </p>
+            <h4 style="font-size: 16px; font-weight: 600;">— Lerato K.</h4>
+        </div>
+
+        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
+            <div style="color: #FFD700; margin-bottom: 15px;">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
+                "Fast delivery and exceptional organic ingredients. My daily routine feels incomplete without the Ultimate Glow Combo."
+            </p>
+            <h4 style="font-size: 16px; font-weight: 600;">— Sarah P.</h4>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p>&copy; SKINSHO. All rights reserved.</p>
+    <footer class="footer-container">
+        <h3 class="script-font" style="font-size: 36px;">Contact Us On</h3>
+        <div class="social-icons-group">
+            <a href="tel:+27000000000" class="social-glass-btn" title="Call Us"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/27000000000" class="social-glass-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com" class="social-glass-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
+        <p style="margin-top: 25px; font-size: 12px; opacity: 0.7;">&copy; 2026 Spotted Lenity Organic Skincare Products. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews | SKINSHO Skincare</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <!-- Header / Navigation -->
-    <header class="site-header">
-        <div class="header-container">
-            <nav class="nav-left">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="shop.html" class="nav-link">PERSONAL USE</a>
-                <a href="shop.html#resellers" class="nav-link">RESELLERS</a>
-                <a href="reviews.html" class="nav-link active">REVIEWS</a>
-            </nav>
-
-            <div class="logo-container">
-                <a href="index.html" class="logo">
-                    <span class="logo-mark">SKINSHO</span>
-                </a>
-            </div>
-
-            <div class="nav-right">
-                <a href="index.html#about" class="nav-link">ABOUT</a>
-                <a href="index.html#contact" class="nav-link">CONTACT</a>
-                <a href="checkout.html" class="cart-icon-link" aria-label="Shopping Cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span class="cart-badge" id="cart-count">0</span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="products-section">
-        <div class="products-container">
-            <div class="section-header">
-                <h1 class="section-title">Customer Reviews</h1>
-            </div>
-
-            <div class="reviews-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px;">
-                
-                <!-- Display Reviews Container -->
-                <div class="reviews-list-box">
-                    <h2 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 20px;">What Our Clients Say</h2>
-                    
-                    <div id="reviews-container" style="display: flex; flex-direction: column; gap: 20px;">
-                        <p style="color: var(--color-text-muted); font-size: 14px;">Loading reviews...</p>
-                    </div>
-                </div>
-
-                <!-- Submit Review Form -->
-                <div class="review-form-box" style="background-color: var(--color-white); padding: 30px; border: 1px solid var(--color-border);">
-                    <h2 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 20px;">Leave a Review</h2>
-                    
-                    <form id="review-form" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">YOUR NAME</label>
-                            <input type="text" id="reviewer-name" required style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px;">
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">RATING</label>
-                            <select id="reviewer-rating" style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px; background: var(--color-white);">
-                                <option value="5">★★★★★ (5/5)</option>
-                                <option value="4">★★★★☆ (4/5)</option>
-                                <option value="3">★★★☆☆ (3/5)</option>
-                                <option value="2">★★☆☆☆ (2/5)</option>
-                                <option value="1">★☆☆☆☆ (1/5)</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">YOUR REVIEW</label>
-                            <textarea id="reviewer-comment" rows="4" required style="width: 100%; padding: 12px; border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 14px;"></textarea>
-                        </div>
-
-                        <button type="submit" class="add-to-cart-btn" style="background-color: var(--color-dusty-rose); color: var(--color-white); margin-top: 10px; padding: 15px;">SUBMIT REVIEW</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <p>&copy; SKINSHO. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
 </body>
 </html>
