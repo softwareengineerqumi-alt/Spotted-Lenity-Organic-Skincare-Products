@@ -26,62 +26,103 @@
         </div>
     </header>
 
-    <!-- Floating Liquid Glass Cart Bubble -->
+    <!-- Floating Cart Bubble -->
     <a href="checkout.html" class="floating-cart-bubble" title="View Cart">
         <i class="fas fa-shopping-bag" style="font-size: 20px;"></i>
         <span style="font-size: 10px; margin-top: 2px;">Cart</span>
         <span class="cart-count-badge" id="cart-count">0</span>
     </a>
 
-    <!-- Main Content -->
-    <section style="text-align: center; padding: 60px 20px 20px;">
-        <h1 class="script-font" style="font-size: 52px; margin-bottom: 10px;">Client Love</h1>
-        <p style="font-size: 16px; opacity: 0.9;">See what our community has to say about our organic products.</p>
+    <section style="text-align: center; padding: 50px 20px 10px;">
+        <h1 class="script-font" style="font-size: 52px; margin-bottom: 10px;">Customer Reviews</h1>
+        <p style="font-size: 16px; opacity: 0.9;">Read real feedback or leave your own review below.</p>
     </section>
 
-    <!-- Reviews Grid -->
-    <main style="max-width: 1000px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
-            <div style="color: #FFD700; margin-bottom: 15px;">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
-                "The Glow Serum and Face Cream combination transformed my skin texture within weeks. Absolutely in love with this brand!"
-            </p>
-            <h4 style="font-size: 16px; font-weight: 600;">— Thandi M.</h4>
+    <!-- Submit Review Form Card -->
+    <section style="max-width: 600px; margin: 20px auto 40px; padding: 0 20px;">
+        <div class="liquid-product-card" style="text-align: left; padding: 25px;">
+            <h3 class="script-font" style="font-size: 28px; margin-bottom: 15px;">Leave a Review</h3>
+            <form id="review-form" style="display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label style="font-size: 12px; text-transform: uppercase;">Your Name</label>
+                    <input type="text" id="reviewer-name" required placeholder="Enter your name" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: #fff;">
+                </div>
+                <div>
+                    <label style="font-size: 12px; text-transform: uppercase;">Rating</label>
+                    <select id="reviewer-rating" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: #1C3826; color: #fff;">
+                        <option value="5">★★★★★ (5/5)</option>
+                        <option value="4">★★★★☆ (4/5)</option>
+                        <option value="3">★★★☆☆ (3/5)</option>
+                        <option value="2">★★☆☆☆ (2/5)</option>
+                        <option value="1">★☆☆☆☆ (1/5)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-size: 12px; text-transform: uppercase;">Your Review</label>
+                    <textarea id="reviewer-text" rows="3" required placeholder="Share your experience with our products..." style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: #fff;"></textarea>
+                </div>
+                <button type="submit" class="btn-glass" style="width: 100%; margin-top: 10px;">Post Review</button>
+            </form>
         </div>
+    </section>
 
-        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
-            <div style="color: #FFD700; margin-bottom: 15px;">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
-                "The Black Soap Paste is so gentle yet effective. Joining as a reseller was the best decision I made this year."
-            </p>
-            <h4 style="font-size: 16px; font-weight: 600;">— Lerato K.</h4>
-        </div>
-
-        <div class="liquid-product-card" style="text-align: left; padding: 30px;">
-            <div style="color: #FFD700; margin-bottom: 15px;">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p style="font-size: 14px; font-style: italic; margin-bottom: 20px; opacity: 0.95;">
-                "Fast delivery and exceptional organic ingredients. My daily routine feels incomplete without the Ultimate Glow Combo."
-            </p>
-            <h4 style="font-size: 16px; font-weight: 600;">— Sarah P.</h4>
-        </div>
+    <!-- Reviews Display Grid -->
+    <main id="reviews-list" style="max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <!-- Reviews submitted by real users will dynamically display here -->
     </main>
 
     <!-- Footer -->
     <footer class="footer-container">
         <h3 class="script-font" style="font-size: 36px;">Contact Us On</h3>
         <div class="social-icons-group">
-            <a href="tel:+27000000000" class="social-glass-btn" title="Call Us"><i class="fas fa-phone"></i></a>
-            <a href="https://wa.me/27000000000" class="social-glass-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://instagram.com" class="social-glass-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="tel:+27000000000" class="social-glass-btn"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/27000000000" class="social-glass-btn"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com" class="social-glass-btn"><i class="fab fa-instagram"></i></a>
         </div>
         <p style="margin-top: 25px; font-size: 12px; opacity: 0.7;">&copy; 2026 Spotted Lenity Organic Skincare Products. All rights reserved.</p>
     </footer>
 
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Live Customer Review Handler
+        document.addEventListener('DOMContentLoaded', loadReviews);
+
+        const form = document.getElementById('review-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reviewer-name').value;
+            const rating = parseInt(document.getElementById('reviewer-rating').value);
+            const text = document.getElementById('reviewer-text').value;
+
+            const newReview = { name, rating, text, date: new Date().toLocaleDateString() };
+            
+            let reviews = JSON.parse(localStorage.getItem('sl_user_reviews')) || [];
+            reviews.unshift(newReview);
+            localStorage.setItem('sl_user_reviews', JSON.stringify(reviews));
+
+            form.reset();
+            loadReviews();
+        });
+
+        function loadReviews() {
+            const container = document.getElementById('reviews-list');
+            let reviews = JSON.parse(localStorage.getItem('sl_user_reviews')) || [];
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; opacity: 0.8;">No reviews posted yet. Be the first to leave a review!</p>';
+                return;
+            }
+
+            container.innerHTML = reviews.map(r => `
+                <div class="liquid-product-card" style="text-align: left; padding: 25px;">
+                    <div style="color: #FFD700; margin-bottom: 10px;">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+                    <p style="font-size: 14px; font-style: italic; margin-bottom: 15px; opacity: 0.95;">"${r.text}"</p>
+                    <h4 style="font-size: 15px; font-weight: 600;">— ${r.name}</h4>
+                    <span style="font-size: 11px; opacity: 0.6;">${r.date}</span>
+                </div>
+            `).join('');
+        }
+    </script>
 </body>
 </html>
