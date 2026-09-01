@@ -1,3 +1,5 @@
+// Checkout Script: Handles displaying cart items and processing WhatsApp orders
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCheckoutCart();
     setupCheckoutForm();
