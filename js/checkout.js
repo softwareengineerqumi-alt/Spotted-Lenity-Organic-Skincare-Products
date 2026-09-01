@@ -1,90 +1,83 @@
-// Checkout Form Processing for Spotted Lenity
-
 document.addEventListener('DOMContentLoaded', () => {
-    initializeCheckoutForm();
+    renderCheckoutCart();
+    setupCheckoutForm();
 });
 
-function initializeCheckoutForm() {
-    const checkoutForm = document.getElementById('checkout-form');
+function renderCheckoutCart() {
+    const container = document.getElementById('cart-items-container');
+    const totalElement = document.getElementById('cart-total-price');
+    
+    if (!container) return;
 
-    if (checkoutForm) {
-        checkoutForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const cart = typeof getCart === 'function' ? getCart() : [];
-
-            if (cart.length === 0) {
-                alert('Your cart is empty. Please add items before checking out.');
-                return;
-            }
-
-            // Gather Customer Details
-            const customerData = {
-                name: document.getElementById('cust-name').value.trim(),
-                email: document.getElementById('cust-email').value.trim(),
-                phone: document.getElementById('cust-phone').value.trim(),
-                address: document.getElementById('cust-address').value.trim(),
-                cart: cart,
-                total: typeof calculateCartTotal === 'function' ? calculateCartTotal() : 0
-            };
-
-            // Store order details temporarily for reference page
-            const orderRef = 'ORD-' + Date.now();
-            sessionStorage.setItem('spotted_lenity_last_order', JSON.stringify({
-                ref: orderRef,
-                details: customerData
-            }));
-
-            // Clear Cart in LocalStorage
-            localStorage.removeItem('spotted_lenity_cart');
-
-            // Redirect to Order Confirmation
-            window.location.href = 'success.html';
-        });
+    if (cart.length === 0) {
+        container.innerHTML = '<p style="opacity: 0.8; font-style: italic;">Your cart is currently empty.</p>';
+        if (totalElement) totalElement.textContent = 'R0.00';
+        return;
     }
+
+    let html = '<ul style="list-style: none; padding: 0;">';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        html += `
+            <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 8px;">
+                <div>
+                    <strong style="font-size: 14px;">${item.name}</strong>
+                    <div style="font-size: 12px; opacity: 0.8;">R${item.price} x ${item.quantity}</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-weight: 600;">R${itemTotal}</span>
+                    <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #ff6b6b; cursor: pointer; font-size: 14px;">✕</button>
+                </div>
+            </li>
+        `;
+    });
+
+    html += '</ul>';
+    container.innerHTML = html;
+    if (totalElement) totalElement.textContent = `R${total.toFixed(2)}`;
 }
-// Checkout Form Processing for Spotted Lenity
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCheckoutForm();
-});
+function setupCheckoutForm() {
+    const form = document.getElementById('checkout-form');
+    if (!form) return;
 
-function initializeCheckoutForm() {
-    const checkoutForm = document.getElementById('checkout-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    if (checkoutForm) {
-        checkoutForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        if (cart.length === 0) {
+            alert('Your cart is empty! Add products before checking out.');
+            return;
+        }
 
-            const cart = typeof getCart === 'function' ? getCart() : [];
+        const name = form.querySelector('input[type="text"]').value;
+        const phone = form.querySelector('input[type="tel"]').value;
+        const courierSelect = form.querySelector('select');
+        const courier = courierSelect.options[courierSelect.selectedIndex].text;
+        const address = form.querySelector('textarea').value;
 
-            if (cart.length === 0) {
-                alert('Your cart is empty. Please add items before checking out.');
-                return;
-            }
+        let orderSummary = `*NEW ORDER - Spotted Lenity*\n\n`;
+        orderSummary += `*Customer:* ${name}\n`;
+        orderSummary += `*Phone:* ${phone}\n`;
+        orderSummary += `*Courier:* ${courier}\n`;
+        orderSummary += `*Address/Locker:* ${address}\n\n`;
+        orderSummary += `*Items Ordered:*\n`;
 
-            // Gather Customer Details
-            const customerData = {
-                name: document.getElementById('cust-name').value.trim(),
-                email: document.getElementById('cust-email').value.trim(),
-                phone: document.getElementById('cust-phone').value.trim(),
-                address: document.getElementById('cust-address').value.trim(),
-                cart: cart,
-                total: typeof calculateCartTotal === 'function' ? calculateCartTotal() : 0
-            };
-
-            // Store order details temporarily for reference page
-            const orderRef = 'ORD-' + Date.now();
-            sessionStorage.setItem('spotted_lenity_last_order', JSON.stringify({
-                ref: orderRef,
-                details: customerData
-            }));
-
-            // Clear Cart in LocalStorage
-            localStorage.removeItem('spotted_lenity_cart');
-
-            // Redirect to Order Confirmation
-            window.location.href = 'success.html';
+        let total = 0;
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            orderSummary += `- ${item.name} (x${item.quantity}) - R${itemTotal}\n`;
         });
-    }
+
+        orderSummary += `\n*Total Amount:* R${total.toFixed(2)}`;
+
+        // Clear cart after placing order
+        localStorage.removeItem('spotted_lenity_cart');
+        
+        const encodedMessage = encodeURIComponent(orderSummary);
+        window.location.href = `https://wa.me/27000000000?text=${encodedMessage}`;
+    });
 }
